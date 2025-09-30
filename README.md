@@ -54,27 +54,10 @@ Copiar código
 ```bash
 git clone https://github.com/SeuUsuario/Sistema-de-Gerenciamento-de-Livraria.git
 cd Sistema-de-Gerenciamento-de-Livraria
-(Opcional, mas recomendado) Crie e ative um ambiente virtual:
 
-bash
-Copiar código
-python -m venv venv
-# Windows
-.\venv\Scripts\activate
-# Mac/Linux
-source venv/bin/activate
 Instale as dependências:
 
-bash
-Copiar código
 pip install -r requirements.txt
-Se não houver requirements.txt, instale apenas o FPDF2:
 
-bash
-Copiar código
-pip install fpdf2
 Execute o sistema:
-
-bash
-Copiar código
 python main.py
