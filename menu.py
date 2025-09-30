@@ -11,10 +11,11 @@ def menu():
         print("4. Remover um livro")
         print("5. Buscar livros por autor")
         print("6. Exportar dados para CSV")
-        print("7. Fazer backup do banco de dados")
-        print("8. Gerar relatório HTML")
-        print("9. Gerar relatório PDF")
-        print("10. Sair")
+        print("8. Importar dados de CSV")
+        print("9. Fazer backup do banco de dados")
+        print("10. Gerar relatório HTML")
+        print("11. Gerar relatório PDF")
+        print("12. Sair")
 
         escolha = input("Escolha uma opção: ")
 
