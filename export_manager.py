@@ -2,9 +2,8 @@ import csv
 from pathlib import Path
 from fpdf import FPDF
 from database import buscar_livros
+from file_manager import EXPORT_DIR
 
-BASE_DIR = Path(__file__).parent.resolve()
-EXPORT_DIR = BASE_DIR / 'exports'
 EXPORT_DIR.mkdir(exist_ok=True)
 
 # CSV
@@ -17,7 +16,7 @@ def exportar_csv():
         writer.writerows(livros)
     print(f"✅ Exportado para {csv_path}")
 
-# HTML com DataTables
+# HTML interativo
 def gerar_relatorio_html():
     livros = buscar_livros()
     html_path = EXPORT_DIR / "relatorio_livros.html"
