@@ -1,7 +1,7 @@
 # Sistema de Gerenciamento de Livraria
 
 📚 Projeto em **Python** para gerenciar livros utilizando **SQLite**.  
-O sistema permite CRUD completo, backup automático, importação/exportação de dados e geração de relatórios em CSV, HTML e PDF.
+O sistema oferece CRUD completo, backup automático, importação/exportação de dados e geração de relatórios em CSV, HTML e PDF.
 
 ---
 
@@ -19,7 +19,7 @@ O sistema permite CRUD completo, backup automático, importação/exportação d
 ## Tecnologias Utilizadas
 
 - Python 3.11+
-- SQLite (banco de dados)
+- SQLite
 - FPDF2 (para PDF)
 - Bootstrap 5 (para HTML)
 - DataTables (para tabelas interativas)
@@ -43,6 +43,15 @@ meu_sistema_livraria/
 ├─ utils.py               # Funções auxiliares (validações, etc.)
 └─ requirements.txt       # Dependências do Python (ex.: fpdf2)
 
+---
+
+## Pré-requisitos
+
+- Python 3.11 ou superior instalado
+- Pip atualizado
+- Bibliotecas listadas em `requirements.txt`
+
+---
 
 ## Como Rodar
 
@@ -53,7 +62,6 @@ git clone https://github.com/SeuUsuario/Sistema-de-Gerenciamento-de-Livraria.git
 cd Sistema-de-Gerenciamento-de-Livraria
 
 Instale as dependências:
-
 pip install -r requirements.txt
 
 Execute o sistema:
