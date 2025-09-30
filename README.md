@@ -41,10 +41,6 @@ meu_sistema_livraria/
 ├─ menu.py # Menu interativo
 ├─ main.py # Ponto de entrada
 └─ utils.py # Funções utilitárias (opcional)
-
-yaml
-Copiar código
-
 ---
 
 ## Como Rodar
