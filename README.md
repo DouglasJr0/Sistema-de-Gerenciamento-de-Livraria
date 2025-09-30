@@ -27,7 +27,7 @@ O sistema oferece CRUD completo, backup automático, importação/exportação d
 ---
 
 ## Estrutura do Projeto
-
+```bash
 meu_sistema_livraria/
 │
 ├─ data/                  # Banco SQLite
