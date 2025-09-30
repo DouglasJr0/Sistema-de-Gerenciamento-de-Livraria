@@ -1,7 +1,8 @@
-from utils import validar_ano, validar_preco, validar_texto
+from utils import validar_ano, validar_preco, validar_texto, validar_id, validar_caminho_arquivo
 from database import adicionar_livro, buscar_livros, atualizar_preco, remover_livro, buscar_por_autor
 from file_manager import fazer_backup
 from export_manager import exportar_csv, gerar_relatorio_html, gerar_relatorio_pdf
+import csv
 
 def menu():
     while True:
@@ -21,19 +22,13 @@ def menu():
         escolha = input("Escolha uma opção: ")
 
         if escolha == "1":
-            titulo = None
+            titulo = autor = ano = preco = None
             while titulo is None:
                 titulo = validar_texto(input("Título: "), "Título")
-
-            autor = None
             while autor is None:
                 autor = validar_texto(input("Autor: "), "Autor")
-
-            ano = None
             while ano is None:
                 ano = validar_ano(input("Ano de publicação: "))
-
-            preco = None
             while preco is None:
                 preco = validar_preco(input("Preço: "))
 
@@ -50,20 +45,25 @@ def menu():
                 print("Nenhum livro cadastrado.")
 
         elif escolha == "3":
-            id_livro = input("ID do livro: ")
-            preco = None
+            id_livro = preco = None
+            while id_livro is None:
+                id_livro = validar_id(input("ID do livro: "))
             while preco is None:
                 preco = validar_preco(input("Novo preço: "))
+
             fazer_backup()
-            if atualizar_preco(int(id_livro), preco):
+            if atualizar_preco(id_livro, preco):
                 print("✅ Preço atualizado.")
             else:
                 print("❌ Livro não encontrado.")
 
         elif escolha == "4":
-            id_livro = input("ID do livro: ")
+            id_livro = None
+            while id_livro is None:
+                id_livro = validar_id(input("ID do livro: "))
+
             fazer_backup()
-            if remover_livro(int(id_livro)):
+            if remover_livro(id_livro):
                 print("✅ Livro removido.")
             else:
                 print("❌ Livro não encontrado.")
@@ -81,22 +81,16 @@ def menu():
             exportar_csv()
 
         elif escolha == "7":
-            caminho = input("Caminho do CSV: ")
-            try:
-                from database import adicionar_livro
-                import csv
-                with open(caminho, newline='', encoding='utf-8') as f:
-                    reader = csv.DictReader(f)
-                    for row in reader:
-                        t = validar_texto(row['titulo'], "Título")
-                        a = validar_texto(row['autor'], "Autor")
-                        y = validar_ano(row['ano_publicacao'])
-                        p = validar_preco(row['preco'])
-                        if None not in [t,a,y,p]:
-                            adicionar_livro(t,a,y,p)
-                print("✅ CSV importado.")
-            except Exception as e:
-                print(f"Erro: {e}")
+            caminho = None
+            while caminho is None:
+                caminho = validar_caminho_arquivo(input("Caminho do CSV: "))
+            with open(caminho, newline='', encoding='utf-8') as f:
+                reader = csv.DictReader(f)
+                for row in reader:
+                    validated = validar_csv_linha(row)
+                    if validated:
+                        adicionar_livro(*validated)
+            print("✅ CSV importado.")
 
         elif escolha == "8":
             fazer_backup()
