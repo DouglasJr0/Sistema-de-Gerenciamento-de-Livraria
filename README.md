@@ -30,18 +30,19 @@ O sistema permite CRUD completo, backup automático, importação/exportação d
 
 meu_sistema_livraria/
 │
-├─ data/
-│ └─ livraria.db # Banco de dados SQLite
-├─ backups/ # Backups automáticos do banco
-├─ exports/ # Relatórios CSV, HTML e PDF
+├─ data/                  # Banco SQLite
+│   └─ livraria.db
+├─ backups/               # Backups automáticos
+├─ exports/               # Arquivos CSV, HTML e PDF
 │
-├─ database.py # CRUD e conexão SQLite
-├─ file_manager.py # Backup automático
-├─ export_manager.py # Exportação CSV, HTML e PDF
-├─ menu.py # Menu interativo
-├─ main.py # Ponto de entrada
-└─ utils.py # Funções utilitárias (opcional)
----
+├─ database.py            # CRUD e conexão SQLite
+├─ file_manager.py        # Backup automático e limpeza
+├─ export_manager.py      # Exportação CSV, HTML e PDF
+├─ menu.py                # Menu interativo
+├─ main.py                # Ponto de entrada
+├─ utils.py               # Funções auxiliares (validações, etc.)
+└─ requirements.txt       # Dependências do Python (ex.: fpdf2)
+
 
 ## Como Rodar
 
